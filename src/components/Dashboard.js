@@ -96,53 +96,54 @@ const Dashboard = () => {
 
   return (
     <HoldingsProvider> {/* Wrap the Dashboard with the HoldingsProvider */}
-      <div className="bg-slate-900 h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-6 p-10 font-quicksand">
-        <div className="row-span-1 xl:row-span-1">
-          <Equity equity={equity} />
-        </div>
+<div className="bg-slate-900 min-h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-6 p-10 font-quicksand">
+  <div className="row-span-1 xl:row-span-1">
+    <Equity equity={equity} />
+  </div>
 
-        <div className="row-span-1 xl:row-span-1">
-          <CashBalance cashBalance={cashBalance} />
-        </div>
+  <div className="row-span-1 xl:row-span-1">
+    <CashBalance cashBalance={cashBalance} />
+  </div>
 
-        <div className="row-span-1 xl:row-span-1">
-          <ManageFunds
-            cashBalance={cashBalance}
-            onDeposit={handleDeposit}
-            onWithdrawal={handleWithdrawal}
-          />
-        </div>
+  <div className="row-span-1 xl:row-span-1">
+    <ManageFunds
+      cashBalance={cashBalance}
+      onDeposit={handleDeposit}
+      onWithdrawal={handleWithdrawal}
+    />
+  </div>
 
-        <div className="md:col-span-2 row-span-5">
-          <Holdings />
-        </div>
+  <div className="md:col-span-2 row-span-5">
+    <Holdings />
+  </div>
 
-        <div className="row-span-2 xl:row-span-2">
-          <ShareTransaction
-            tickerSymbol={stockSymbol}
-            price={quote.pc}
-            cashBalance={cashBalance}
-            onDeposit={handleDeposit}
-            onWithdraw={handleWithdrawal}
-            onDepositEquity={handleEquityDeposit}
-            onWithdrawEquity={handleEquityWithdrawal}
-            equity={equity}
-          />
-        </div>
+  <div className="row-span-2 xl:row-span-2">
+    <ShareTransaction
+      tickerSymbol={stockSymbol}
+      price={quote.pc}
+      cashBalance={cashBalance}
+      onDeposit={handleDeposit}
+      onWithdraw={handleWithdrawal}
+      onDepositEquity={handleEquityDeposit}
+      onWithdrawEquity={handleEquityWithdrawal}
+      equity={equity}
+    />
+  </div>
 
-        <div className="row-span-2 xl:row-span-3 ">
-          <Overview
-            symbol={stockSymbol}
-            name={stockDetails.name}
-            price={quote.pc}
-            change={quote.d}
-            changePercent={quote.dp}
-            currency={stockDetails.currency}
-            marketCapitalization={stockDetails.marketCapitalization}
-          >
-          </Overview>
-        </div>
-      </div>
+  <div className="row-span-2 xl:row-span-3 ">
+    <Overview
+      symbol={stockSymbol}
+      name={stockDetails.name}
+      price={quote.pc}
+      change={quote.d}
+      changePercent={quote.dp}
+      currency={stockDetails.currency}
+      marketCapitalization={stockDetails.marketCapitalization}
+    >
+    </Overview>
+  </div>
+</div>
+
     </HoldingsProvider>
   );
 };
