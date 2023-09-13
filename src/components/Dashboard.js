@@ -16,7 +16,8 @@ const Dashboard = () => {
   const [stockDetails, setStockDetails] = useState({});
   const [quote, setQuote] = useState({});
 
-
+  //two fetch functions required since the API has split the data we need into 2 different calls
+  //update info retaining to stock once a new symbol is selected in search bar
   useEffect(() => {
     const updateStockDetails = async () => {
       try {
@@ -28,6 +29,7 @@ const Dashboard = () => {
       }
     };
 
+    //update info retaining to stock once a new symbol is selected in search bar
     const updateStockOverview = async () => {
       try {
         const result = await fetchQuote(stockSymbol);

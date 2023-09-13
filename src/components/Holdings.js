@@ -47,7 +47,7 @@ const Holdings = () => {
             {getHoldings().map((row, index) => (
               <tr
                 key={index}
-                className={"bg-slate-800"} // Alternating row colors
+                className={"bg-slate-800"}
               >
                 <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-slate-400">
                   {row.symbol}

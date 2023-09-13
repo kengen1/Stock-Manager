@@ -64,6 +64,5 @@ const Overview = ({ symbol, name, price, change, changePercent, currency, market
       </Card>
     );
   };
-  
+
   export default Overview;
-  

@@ -18,6 +18,7 @@ const ShareTransaction = ({ tickerSymbol, price, cashBalance, onDeposit, onWithd
     }
   };
 
+  //check for error conditions, add funds to equity and add data to table
   const handleBuy = () => {
     if (totalTransaction > 0 && cashBalance >= totalTransaction) {
       const existingHoldingIndex = getHoldings().findIndex((holding) => holding.symbol === tickerSymbol);
@@ -66,6 +67,7 @@ const ShareTransaction = ({ tickerSymbol, price, cashBalance, onDeposit, onWithd
   };
 
 
+  //check for error conditions, add funds to cash balance and remove data from table
   const handleSell = () => {
     const holdings = getHoldings();
     const existingHoldingIndex = holdings.findIndex((holding) => holding.symbol === tickerSymbol);
@@ -98,11 +100,11 @@ const ShareTransaction = ({ tickerSymbol, price, cashBalance, onDeposit, onWithd
         onWithdrawEquity(totalTransaction);
         // Deposit the total transaction amount to cash balance
         onDeposit(totalTransaction);
-  
+
         // Reset totalTransaction and shareAmount
         setTotalTransaction(0);
         setShareAmount(0);
-  
+
         setErrorMessage('');
       } else {
         // Display an error message if the user is trying to sell more than they own
